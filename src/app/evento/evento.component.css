@@ -1,0 +1,9 @@
+.list-container  {
+    display: flex;
+}
+
+.foto-container {
+    width: 350px;
+    border-width: 200;
+    border-color: black;
+}

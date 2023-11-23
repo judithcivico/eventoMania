@@ -1,0 +1,10 @@
+<div class="list-container">
+    <div class="foto-container" *ngFor="let evento of eventos">
+        <h2>Proximos Eventos</h2>
+        <h3>{{evento.titulo}}</h3>
+        <h3>{{evento.artista}}</h3>
+        <h3>{{evento.fecha | date}}</h3>
+        <h3>{{evento.direccion}}</h3>
+        <h3>{{evento.precio}}</h3>
+    </div>   
+</div>

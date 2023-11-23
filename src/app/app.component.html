@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row justify-content-center ">
+        <div class="col-md-6">
+            <p class="mt-3 text-light text-center">Filtrar por dirección</p>
+            <select class="form-control text-center" name="tipo" id="tipo" [(ngModel)]="tipo">
+                <option value="-">-</option>
+                <option value="Sant Jordi Club">Sant Jordi Club</option>
+                <option value="Palau Sant Jordi">Palau Sant Jordi</option>
+                <option value="Razzmatazz">Razzmatazz</option>
+            </select>
+        </div>
+    </div>
+
+    <h2 class="mt-4 text-light text-center">Próximos Eventos</h2>
+    <div class="row justify-content-center">
+        <ng-container *ngFor="let evento of eventosProximos">
+                <div *ngIf="esElMismoTipo(evento)" class="col-md-4 mb-3 ">
+                    <div class="border rounded p-3 custom-event bg-light ">
+                        <h3>{{evento.titulo}}</h3>
+                        <h4>{{evento.artista}}</h4>
+                        <h5>{{evento.fecha | date}} - {{ evento.fecha | date: 'HH:MM'}}</h5>
+                        <h5>{{evento.direccion}}</h5>
+                        <h4>{{(evento.precio != 0) ? (evento.precio | currency) :'Gratis!'}}</h4><br>
+                    </div>
+                </div>
+        </ng-container>
+    </div>
+
+    <h2 class="mt-4 text-light text-center">Eventos Pasados</h2>
+    <div class="justify-content-center row">
+        <ng-container *ngFor="let evento of eventosPasados">
+                <div *ngIf="esElMismoTipo(evento)" class="col-md-4 mb-3">
+                    <div class="border rounded p-3 custom-event bg-secondary">
+                        <h3 class="text-light">{{evento.titulo}}</h3>
+                        <h4 class="text-light">{{evento.artista}}</h4>
+                        <h5 class="text-light">{{evento.fecha | date}} - {{ evento.fecha | date: 'HH:MM'}}</h5>
+                        <h5 class="text-light">{{evento.direccion}}</h5>
+                        <h4 class="text-light">{{(evento.precio != 0) ? (evento.precio | currency) :'Gratis!'}}</h4><br>
+                    </div>
+                </div>
+        </ng-container>
+    </div>
+</div>
